@@ -1,3 +1,32 @@
+.overlay {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  z-index: 5;
+}
+
+.loader {
+  border: 15px solid #f3f3f3;
+  border-top: 15px solid gray;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1.5s linear infinite;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .app-title {
   font-family: cursive;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='38' ry='38' stroke='%23EC3463' stroke-width='7' stroke-dasharray='6%2c 20%2c 24%2c 8' stroke-dashoffset='59' stroke-linecap='butt'/%3e%3c/svg%3e");

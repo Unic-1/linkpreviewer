@@ -14,6 +14,9 @@
     <div
       class="container flex flex-col space-y-8 justify-center mx-auto px-4 py-4"
     >
+      <div class="overlay">
+        <div class="loader"></div>
+      </div>
       <div class="flex justify-center">
         <h1 class="text-5xl font-bold app-title">Link Previewer</h1>
       </div>
@@ -436,6 +439,13 @@
         }
       }
 
+      function toggleLoading(isLoading) {
+        const loadingOverlay = document.getElementsByClassName("overlay")[0];
+
+        if (isLoading) loadingOverlay.style.display = "block";
+        else loadingOverlay.style.display = "none";
+      }
+
       function makeAPICall() {
         const inputUrl = document.getElementById("input-url");
 
@@ -446,9 +456,12 @@
           return;
         }
 
+        toggleLoading(true);
+
         fetch("/api/url/info?url=" + inputUrl.value)
           .then((res) => res.json())
           .then((res) => {
+            toggleLoading(false);
             // error during api call
             if (!res.success) {
               alert(res.message);
@@ -502,6 +515,7 @@
             }
           })
           .catch((err) => {
+            toggleLoading(false);
             alert(err);
             hideLinkPreview();
           });
@@ -509,6 +523,7 @@
 
       // Hide all link preview boxes in the begining
       hideLinkPreview();
+      toggleLoading(false);
 
       previewButton.addEventListener("click", (event) => {
         debounceFunction(makeAPICall, 300); // debounce window of 300ms
