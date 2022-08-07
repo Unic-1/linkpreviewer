@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+  </head>
+  <body class="bg-black text-white">
+    <div
+      class="container flex flex-col space-y-8 justify-center mx-auto px-4 py-4"
+    >
+      <div class="flex justify-center">
+        <h1 class="text-5xl font-bold app-title">Link Previewer</h1>
+      </div>
+
+      <div class="flex justify-center">
+        <input
+          type="text"
+          name=""
+          id="input-url"
+          class="rounded-full input-style text-black px-4 py-3"
+        />
+      </div>
+      <div class="flex justify-center">
+        <button id="preview-btn" class="bg-[#4f46e5] px-9 py-2 rounded-md">
+          Preview
+        </button>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="flex flex-wrap py-11">
+        <!-- Desktop section -->
+        <div class="grow flex flex-col justify-center">
+          <div class="text-center py-5">
+            <span class="material-icons" style="font-size: 64px">
+              desktop_windows
+            </span>
+          </div>
+          <div class="flex flex-col items-center">
+            <div
+              class="monitor-inner-frame border-spacing-1.5 border-gray-400 rounded-lg"
+            >
+              <div class="desktop-toolbar"></div>
+              <div class="mail-container flex flex-col">
+                <div class="mail-header"></div>
+                <div class="mail-body flex divide-x h-full">
+                  <div class="mail-list basis-3/12">
+                    <ul class="text-slate-500 divide-y">
+                      <li>
+                        <div class="flex px-2 py-2">
+                          <div
+                            class="rounded-full bg-gray-400 mail-avatar"
+                          ></div>
+                          <div class="flex flex-col w-full px-2 py-1 gap-y-0.5">
+                            <div
+                              class="title-skeleton rounded-full bg-gray-400 h-2 w-1/4"
+                            ></div>
+                            <div
+                              class="caption-skeleton rounded-full bg-gray-400 h-2 w-3/4"
+                            ></div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="flex px-2 py-2">
+                          <div
+                            class="rounded-full bg-gray-400 mail-avatar"
+                          ></div>
+                          <div class="flex flex-col w-full px-2 py-1 gap-y-0.5">
+                            <div
+                              class="title-skeleton rounded-full bg-gray-400 h-2 w-1/4"
+                            ></div>
+                            <div
+                              class="caption-skeleton rounded-full bg-gray-400 h-2 w-3/4"
+                            ></div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="flex px-2 py-2">
+                          <div
+                            class="rounded-full bg-gray-400 mail-avatar"
+                          ></div>
+                          <div class="flex flex-col w-full px-2 py-1 gap-y-0.5">
+                            <div
+                              class="title-skeleton rounded-full bg-gray-400 h-2 w-1/4"
+                            ></div>
+                            <div
+                              class="caption-skeleton rounded-full bg-gray-400 h-2 w-3/4"
+                            ></div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="flex px-2 py-2">
+                          <div
+                            class="rounded-full bg-gray-400 mail-avatar"
+                          ></div>
+                          <div class="flex flex-col w-full px-2 py-1 gap-y-0.5">
+                            <div
+                              class="title-skeleton rounded-full bg-gray-400 h-2 w-1/4"
+                            ></div>
+                            <div
+                              class="caption-skeleton rounded-full bg-gray-400 h-2 w-3/4"
+                            ></div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="flex px-2 py-2">
+                          <div
+                            class="rounded-full bg-gray-400 mail-avatar"
+                          ></div>
+                          <div class="flex flex-col w-full px-2 py-1 gap-y-0.5">
+                            <div
+                              class="title-skeleton rounded-full bg-gray-400 h-2 w-1/4"
+                            ></div>
+                            <div
+                              class="caption-skeleton rounded-full bg-gray-400 h-2 w-3/4"
+                            ></div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="new-mail basis-9/12 text-gray-600 text-xs p-3">
+                    <div class="flex flex-col gap-1">
+                      <div class="border-b-px">
+                        To:
+                        <span class="text-blue-500">foo@example.com</span>
+                      </div>
+                      <div class="border-b-px">
+                        From:
+                        <span class="text-blue-500">foo@example.com</span>
+                      </div>
+                      <div class="divider"></div>
+                      <div class="border-b-px">
+                        Subject:
+                        <span>Link Preview</span>
+                      </div>
+                      <div class="content">
+                        Lorem ipsum, <br />
+                        Dolor sit amet consectetur adipisicing elit. Doloremque
+                        soluta odio accusamus dicta quidem nemo natus
+                        reprehenderit facere.
+                        <span
+                          class="link-placeholder text-blue-500 font-bold"
+                        ></span>
+                      </div>
+                      <div class="link-preview flex w-full">
+                        <div class="basis-4/12 preview-img-section">
+                          <img
+                            class="preview-img"
+                            src="https://i.ytimg.com/vi_webp/svhsstvqaE0/maxresdefault.webp"
+                            alt="thumbnail"
+                          />
+                        </div>
+                        <div
+                          class="preview-content-section text-xs basis-8/12 w-3"
+                        >
+                          <div
+                            class="preview-content-details p-2 flex flex-col gap-0.5"
+                          >
+                            <p
+                              class="text-ellipsis whitespace-nowrap overflow-hidden font-bold text-black preview-title text-xl"
+                            >
+                              Title
+                            </p>
+                            <p class="preview-description text-sm">
+                              Lorem ipsum dolor, sit amet consectetur
+                              adipisicing elit. Nihil aliquam itaque saepe,
+                              repellat consequatur tempore placeat
+                              providecupiditate.
+                            </p>
+                          </div>
+
+                          <a
+                            class="preview-link absolute text-blue-500"
+                            href="link"
+                            >link</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="stand"></div>
+            <div class="base-stand"></div> -->
+          </div>
+        </div>
+
+        <!-- Mobile section -->
+        <div class="grow flex flex-col justify-center">
+          <div class="text-center py-5">
+            <span class="material-icons" style="font-size: 64px">
+              phone_android
+            </span>
+          </div>
+          <div class="flex justify-center">
+            <div
+              class="mobile-outer-frame bg-gray-400 rounded-xl flex justify-center items-center"
+            >
+              <div class="mobile-inner-frame rounded-lg">
+                <div class="mobile-toolbar rounded-t-lg"></div>
+                <div class="app-container flex flex-col">
+                  <div class="app-toolbar"></div>
+                  <div class="app-body">
+                    <div class="chat-section">
+                      <ul class="text-slate-500">
+                        <li>
+                          <div class="flex px-2 py-2">
+                            <div
+                              class="rounded-full bg-gray-400 mail-avatar"
+                            ></div>
+                            <div
+                              class="flex flex-col w-full px-2 py-1 gap-y-0.5"
+                            >
+                              <div
+                                class="title-skeleton rounded-full bg-gray-400 h-2 w-1/4"
+                              ></div>
+                              <div
+                                class="caption-skeleton rounded-full bg-gray-400 h-2 w-3/4"
+                              ></div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="flex flex-row-reverse px-2 py-2">
+                            <div
+                              class="rounded-full bg-gray-400 mail-avatar"
+                            ></div>
+                            <div
+                              class="flex flex-col w-full px-2 py-1 gap-y-0.5"
+                              dir="rtl"
+                            >
+                              <div
+                                class="title-skeleton rounded-full bg-gray-400 h-2 w-1/4"
+                              ></div>
+                              <div
+                                class="caption-skeleton rounded-full bg-gray-400 h-2 w-3/4"
+                              ></div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="flex px-2 py-2">
+                            <div
+                              class="rounded-full bg-gray-400 mail-avatar"
+                            ></div>
+                            <div
+                              class="flex flex-col w-full px-2 py-1 gap-y-0.5"
+                            >
+                              <div
+                                class="title-skeleton rounded-full bg-gray-400 h-2 w-1/4"
+                              ></div>
+                              <div
+                                class="caption-skeleton rounded-full bg-gray-400 h-2 w-3/4"
+                              ></div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="flex px-2 py-2">
+                            <div
+                              class="rounded-full bg-gray-400 mail-avatar"
+                            ></div>
+                            <div
+                              class="flex flex-col w-full px-2 py-1 gap-y-0.5"
+                            >
+                              <div
+                                class="title-skeleton rounded-full bg-gray-400 h-2 w-1/4"
+                              ></div>
+                              <div
+                                class="caption-skeleton rounded-full bg-gray-400 h-2 w-3/4"
+                              ></div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="flex flex-row-reverse px-2 py-2">
+                            <div
+                              class="rounded-full bg-gray-400 mail-avatar"
+                            ></div>
+                            <div
+                              class="flex flex-col w-full px-2 py-1 gap-y-0.5"
+                              dir="rtl"
+                            >
+                              <div
+                                class="title-skeleton rounded-full bg-gray-400 h-2 w-1/4"
+                              ></div>
+                              <div
+                                class="caption-skeleton rounded-full bg-gray-400 h-2 w-3/4"
+                              ></div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="flex px-2 py-2">
+                            <div
+                              class="rounded-full bg-gray-400 mail-avatar"
+                            ></div>
+                            <div
+                              class="flex flex-col w-full px-2 py-1 gap-y-0.5"
+                            >
+                              <div
+                                class="title-skeleton rounded-full bg-gray-400 h-2 w-1/4"
+                              ></div>
+                              <div
+                                class="caption-skeleton rounded-full bg-gray-400 h-2 w-3/4"
+                              ></div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="flex flex-row-reverse px-2 py-2">
+                            <div
+                              class="rounded-full bg-gray-400 mail-avatar"
+                            ></div>
+                            <div
+                              class="flex flex-col w-full px-2 py-1 gap-y-0.5"
+                              dir="rtl"
+                            >
+                              <div
+                                class="title-skeleton rounded-full bg-gray-400 h-2 w-1/4"
+                              ></div>
+                              <div
+                                class="caption-skeleton rounded-full bg-gray-400 h-2 w-3/4"
+                              ></div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="flex flex-row-reverse px-2 py-2">
+                            <div
+                              class="rounded-full bg-gray-400 mail-avatar"
+                            ></div>
+                            <div
+                              class="flex flex-col w-full px-2 py-1 gap-y-0.5"
+                              dir="rtl"
+                            >
+                              <div
+                                class="title-skeleton rounded-full bg-gray-400 h-2 w-1/4"
+                              ></div>
+                              <div
+                                class="caption-skeleton rounded-full bg-gray-400 h-2 w-3/4"
+                              ></div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="absolute p-2 w-full bottom-0">
+                      <div class="link-preview text-black flex flex-col mb-2">
+                        <div class="preview-img-section">
+                          <img
+                            class="preview-img"
+                            src="https://i.ytimg.com/vi_webp/svhsstvqaE0/maxresdefault.webp"
+                            alt="thumbnail"
+                          />
+                        </div>
+                        <div class="preview-content-section text-xs">
+                          <div
+                            class="preview-content-details p-2 flex flex-col gap-0.5"
+                          >
+                            <p
+                              class="text-ellipsis whitespace-nowrap overflow-hidden font-bold text-sm text-black preview-title"
+                            >
+                              Title
+                            </p>
+                            <p
+                              class="text-ellipsis whitespace-nowrap overflow-hidden preview-description"
+                            >
+                              Lorem ipsum dolor, sit amet consectetur
+                              adipisicing elit. Nihil aliquam itaque saepe,
+                              repellat consequatur tempore placeat
+                              providecupiditate.
+                            </p>
+                          </div>
+                          <a
+                            class="preview-link text-blue-500 block w-full overflow-hidden whitespace-nowrap text-ellipsis"
+                            href="link"
+                            >link</a
+                          >
+                        </div>
+                      </div>
+                      <div
+                        class="chat-textarea overflow-hidden flex items-center text-xs rounded-full"
+                      >
+                        <span
+                          class="link-placeholder whitespace-nowrap text-blue-500 font-bold"
+                        ></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      if (document) {
+        const previewButton = document.getElementById("preview-btn");
+        // const input = document.getElementById("input-url");
+        // const baseUrl = location.hostname;
+
+        function hideLinkPreview() {
+          const linkPreview = document.getElementsByClassName("link-preview");
+          // Hide preview link section
+          for (const preview of linkPreview) {
+            preview.style.display = "none";
+          }
+        }
+        hideLinkPreview();
+
+        previewButton.addEventListener("click", (event) => {
+          const inputUrl = document.getElementById("input-url");
+
+          if (!inputUrl.value) {
+            hideLinkPreview();
+            alert("Please enter a url");
+            return;
+          }
+
+          fetch("/api/url/info?url=" + inputUrl.value)
+            .then((res) => res.json())
+            .then((res) => {
+              if (!res.success) {
+                alert(res.message);
+                hideLinkPreview();
+                return;
+              }
+
+              const data = res.info;
+
+              const linkPlaceholders =
+                document.getElementsByClassName("link-placeholder");
+
+              for (const placeholder of linkPlaceholders) {
+                placeholder.textContent = inputUrl.value;
+              }
+
+              const previewImg = document.getElementsByClassName("preview-img");
+              for (const img of previewImg) {
+                img.setAttribute("src", data.thumbnail);
+              }
+
+              const previewTitle =
+                document.getElementsByClassName("preview-title");
+              for (const title of previewTitle) {
+                title.textContent = data.title;
+              }
+
+              const previewDescription = document.getElementsByClassName(
+                "preview-description"
+              );
+              for (const description of previewDescription) {
+                description.textContent = data.description;
+              }
+
+              const previewUrl =
+                document.getElementsByClassName("preview-link");
+              for (const url of previewUrl) {
+                url.setAttribute("href", data.url);
+                url.textContent = data.url;
+              }
+
+              const previewCard =
+                document.getElementsByClassName("preview-card");
+              for (const card of previewCard) {
+                card.setAttribute("href", data.url);
+              }
+
+              const linkPreview =
+                document.getElementsByClassName("link-preview");
+
+              for (const preview of linkPreview) {
+                preview.style.display = "flex";
+              }
+            })
+            .catch((err) => {
+              alert(err);
+              hideLinkPreview();
+            });
+        });
+      }
+    </script>
+  </body>
+</html>

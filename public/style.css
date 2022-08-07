@@ -1,0 +1,139 @@
+.app-title {
+  font-family: cursive;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='38' ry='38' stroke='%23EC3463' stroke-width='7' stroke-dasharray='6%2c 20%2c 24%2c 8' stroke-dashoffset='59' stroke-linecap='butt'/%3e%3c/svg%3e");
+border-radius: 38px;
+padding: 100px;
+}
+
+.divider {
+  border-bottom: white 4px dashed;
+}
+
+.input-style {
+  height: 40px;
+  width: 500px;
+}
+
+.border-b-px {
+  border-bottom-width: 1px;
+}
+
+.monitor-outer-frame {
+  height: 350px;
+  width: 550px;
+  background-color: gray;
+}
+
+.monitor-inner-frame {
+  height: 520px;
+  width: 90%;
+  background-color: white;
+  border-width: 15px;
+}
+
+.stand {
+  height: 30px;
+  width: 70px;
+  background-color: gray;
+  margin: auto;
+}
+
+.base-stand {
+  height: 10px;
+  width: 120px;
+  background-color: gray;
+  margin: auto;
+}
+
+.desktop-toolbar {
+  height: 20px;
+  width: 100%;
+  background-color: aliceblue;
+}
+
+.mail-container {
+  height: calc(100% - 20px);
+}
+
+.mail-header {
+  height: 30px;
+  width: 100%;
+  background-color: cornflowerblue;
+}
+
+.mail-body {
+  width: 100%;
+  height: 250px;
+}
+
+.mail-avatar {
+  min-height: 30px;
+  max-height: 30px;
+  min-width: 30px;
+  max-width: 30px;
+}
+
+.link-preview {
+  border: lightgray 1px solid;
+  border-radius: 3px;
+  box-shadow: lightgrey 2px 2px 7px;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.preview-content-section {
+  position: relative;
+}
+
+.preview-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.preview-img-section {
+  background-color: white;
+}
+
+.preview-link {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 5px;
+  bottom: 0;
+  width: 100%;
+}
+
+.mobile-outer-frame {
+  padding: 10px;
+  background-color: gray;
+}
+
+.mobile-inner-frame {
+  height: 500px;
+  width: 280px;
+  background-color: white;
+  position: relative;
+}
+
+.mobile-toolbar {
+  background-color: antiquewhite;
+  height: 20px;
+  width: 100%;
+}
+
+.app-toolbar {
+  background-color: cornflowerblue;
+  height: 30px;
+  width: 100%;
+}
+
+.chat-textarea {
+  height: 30px;
+  margin: auto;
+  background-color: gainsboro;
+  border: gray 1px solid;
+  padding: 2px 10px;
+}
+
+.mobile-inner-frame .link-preview {
+  height: auto;
+}
