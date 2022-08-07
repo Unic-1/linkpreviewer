@@ -145,7 +145,7 @@
                       </div>
                       <div class="border-b-px">
                         From:
-                        <span class="text-blue-500">foo@example.com</span>
+                        <span class="text-blue-500">bar@example.com</span>
                       </div>
                       <div class="divider"></div>
                       <div class="border-b-px">
@@ -449,6 +449,14 @@
       function makeAPICall() {
         const inputUrl = document.getElementById("input-url");
 
+        // Set preview data
+        const linkPlaceholders =
+          document.getElementsByClassName("link-placeholder");
+
+        for (const placeholder of linkPlaceholders) {
+          placeholder.textContent = inputUrl.value;
+        }
+
         // Alert if input is empty
         if (!inputUrl.value) {
           hideLinkPreview();
@@ -470,14 +478,6 @@
             }
 
             const data = res.info;
-
-            // Set preview data
-            const linkPlaceholders =
-              document.getElementsByClassName("link-placeholder");
-
-            for (const placeholder of linkPlaceholders) {
-              placeholder.textContent = inputUrl.value;
-            }
 
             const previewImg = document.getElementsByClassName("preview-img");
             for (const img of previewImg) {
