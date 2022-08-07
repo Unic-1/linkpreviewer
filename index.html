@@ -23,6 +23,7 @@
           type="text"
           name=""
           id="input-url"
+          placeholder="Enter your link here"
           class="rounded-full input-style text-black px-4 py-3"
         />
       </div>
@@ -155,11 +156,7 @@
                       </div>
                       <div class="link-preview flex w-full">
                         <div class="basis-4/12 preview-img-section">
-                          <img
-                            class="preview-img"
-                            src="https://i.ytimg.com/vi_webp/svhsstvqaE0/maxresdefault.webp"
-                            alt="thumbnail"
-                          />
+                          <img class="preview-img" src="" alt="thumbnail" />
                         </div>
                         <div
                           class="preview-content-section text-xs basis-8/12 w-3"
@@ -173,18 +170,14 @@
                               Title
                             </p>
                             <p class="preview-description text-sm">
-                              Lorem ipsum dolor, sit amet consectetur
-                              adipisicing elit. Nihil aliquam itaque saepe,
-                              repellat consequatur tempore placeat
-                              providecupiditate.
+                              Description
                             </p>
                           </div>
 
                           <a
                             class="preview-link absolute text-blue-500"
-                            href="link"
-                            >link</a
-                          >
+                            href="#"
+                          ></a>
                         </div>
                       </div>
                     </div>
@@ -360,11 +353,7 @@
                     <div class="absolute p-2 w-full bottom-0">
                       <div class="link-preview text-black flex flex-col mb-2">
                         <div class="preview-img-section">
-                          <img
-                            class="preview-img"
-                            src="https://i.ytimg.com/vi_webp/svhsstvqaE0/maxresdefault.webp"
-                            alt="thumbnail"
-                          />
+                          <img class="preview-img" src="" alt="thumbnail" />
                         </div>
                         <div class="preview-content-section text-xs">
                           <div
@@ -378,17 +367,13 @@
                             <p
                               class="text-ellipsis whitespace-nowrap overflow-hidden preview-description"
                             >
-                              Lorem ipsum dolor, sit amet consectetur
-                              adipisicing elit. Nihil aliquam itaque saepe,
-                              repellat consequatur tempore placeat
-                              providecupiditate.
+                              Description
                             </p>
                           </div>
                           <a
                             class="preview-link text-blue-500 block w-full overflow-hidden whitespace-nowrap text-ellipsis"
-                            href="link"
-                            >link</a
-                          >
+                            href="#"
+                          ></a>
                         </div>
                       </div>
                       <div
@@ -409,105 +394,103 @@
     </div>
 
     <script>
-      if (document.readyState === "complete") {
-        const previewButton = document.getElementById("preview-btn");
-        let timerId;
+      const previewButton = document.getElementById("preview-btn");
+      let timerId;
 
-        // Debounce function: Input as function which needs to be debounced and delay is the debounced time in milliseconds
-        function debounceFunction(func, delay) {
-          // Cancels the setTimeout method execution
-          clearTimeout(timerId);
+      // Debounce function: Input as function which needs to be debounced and delay is the debounced time in milliseconds
+      function debounceFunction(func, delay) {
+        // Cancels the setTimeout method execution
+        clearTimeout(timerId);
 
-          // Executes the func after delay time.
-          timerId = setTimeout(func, delay);
-        }
-
-        function hideLinkPreview() {
-          const linkPreview = document.getElementsByClassName("link-preview");
-          // Hide preview link section
-          for (const preview of linkPreview) {
-            preview.style.display = "none";
-          }
-        }
-
-        function makeAPICall() {
-          const inputUrl = document.getElementById("input-url");
-
-          if (!inputUrl.value) {
-            hideLinkPreview();
-            alert("Please enter a url");
-            return;
-          }
-
-          fetch("/api/url/info?url=" + inputUrl.value)
-            .then((res) => res.json())
-            .then((res) => {
-              if (!res.success) {
-                alert(res.message);
-                hideLinkPreview();
-                return;
-              }
-
-              const data = res.info;
-
-              const linkPlaceholders =
-                document.getElementsByClassName("link-placeholder");
-
-              for (const placeholder of linkPlaceholders) {
-                placeholder.textContent = inputUrl.value;
-              }
-
-              const previewImg = document.getElementsByClassName("preview-img");
-              for (const img of previewImg) {
-                img.setAttribute("src", data.thumbnail);
-              }
-
-              const previewTitle =
-                document.getElementsByClassName("preview-title");
-              for (const title of previewTitle) {
-                title.textContent = data.title;
-              }
-
-              const previewDescription = document.getElementsByClassName(
-                "preview-description"
-              );
-              for (const description of previewDescription) {
-                description.textContent = data.description;
-              }
-
-              const previewUrl =
-                document.getElementsByClassName("preview-link");
-              for (const url of previewUrl) {
-                url.setAttribute("href", data.url);
-                url.textContent = data.url;
-              }
-
-              const previewCard =
-                document.getElementsByClassName("preview-card");
-              for (const card of previewCard) {
-                card.setAttribute("href", data.url);
-              }
-
-              const linkPreview =
-                document.getElementsByClassName("link-preview");
-
-              for (const preview of linkPreview) {
-                preview.style.display = "flex";
-              }
-            })
-            .catch((err) => {
-              alert(err);
-              hideLinkPreview();
-            });
-        }
-
-        // Hide all link preview boxes in the begining
-        hideLinkPreview();
-
-        previewButton.addEventListener("click", (event) => {
-          debounceFunction(makeAPICall, 300); // debounce window of 300ms
-        });
+        // Executes the func after delay time.
+        timerId = setTimeout(func, delay);
       }
+
+      function hideLinkPreview() {
+        const linkPreview = document.getElementsByClassName("link-preview");
+        // Hide preview link section
+        for (const preview of linkPreview) {
+          preview.style.display = "none";
+        }
+      }
+
+      function makeAPICall() {
+        const inputUrl = document.getElementById("input-url");
+
+        // Alert if input is empty
+        if (!inputUrl.value) {
+          hideLinkPreview();
+          alert("Please enter a url");
+          return;
+        }
+
+        fetch("/api/url/info?url=" + inputUrl.value)
+          .then((res) => res.json())
+          .then((res) => {
+            // error during api call
+            if (!res.success) {
+              alert(res.message);
+              hideLinkPreview();
+              return;
+            }
+
+            const data = res.info;
+
+            // Set preview data
+            const linkPlaceholders =
+              document.getElementsByClassName("link-placeholder");
+
+            for (const placeholder of linkPlaceholders) {
+              placeholder.textContent = inputUrl.value;
+            }
+
+            const previewImg = document.getElementsByClassName("preview-img");
+            for (const img of previewImg) {
+              img.setAttribute("src", data.thumbnail);
+            }
+
+            const previewTitle =
+              document.getElementsByClassName("preview-title");
+            for (const title of previewTitle) {
+              title.textContent = data.title;
+            }
+
+            const previewDescription = document.getElementsByClassName(
+              "preview-description"
+            );
+            for (const description of previewDescription) {
+              description.textContent = data.description;
+            }
+
+            const previewUrl = document.getElementsByClassName("preview-link");
+            for (const url of previewUrl) {
+              url.setAttribute("href", data.url);
+              url.textContent = data.url;
+            }
+
+            const previewCard = document.getElementsByClassName("preview-card");
+            for (const card of previewCard) {
+              card.setAttribute("href", data.url);
+            }
+
+            const linkPreview = document.getElementsByClassName("link-preview");
+
+            for (const preview of linkPreview) {
+              preview.style.display = "flex";
+            }
+          })
+          .catch((err) => {
+            alert(err);
+            hideLinkPreview();
+          });
+      }
+
+      // Hide all link preview boxes in the begining
+      hideLinkPreview();
+
+      previewButton.addEventListener("click", (event) => {
+        debounceFunction(makeAPICall, 300); // debounce window of 300ms
+      });
     </script>
   </body>
 </html>
