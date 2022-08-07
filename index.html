@@ -47,7 +47,11 @@
             <div
               class="monitor-inner-frame border-spacing-1.5 border-gray-400 rounded-lg"
             >
-              <div class="desktop-toolbar"></div>
+              <div class="desktop-toolbar flex justify-end px-1 gap-3">
+                <span class="material-icons icon"> minimize </span>
+                <span class="material-icons icon"> filter_none </span>
+                <span class="material-icons icon"> close </span>
+              </div>
               <div class="mail-container flex flex-col">
                 <div class="mail-header"></div>
                 <div class="mail-body flex divide-x h-full">
@@ -202,7 +206,20 @@
               class="mobile-outer-frame bg-gray-400 rounded-xl flex justify-center items-center"
             >
               <div class="mobile-inner-frame rounded-lg">
-                <div class="mobile-toolbar rounded-t-lg"></div>
+                <div
+                  class="mobile-toolbar flex justify-between rounded-t-lg px-1"
+                >
+                  <div class="flex">
+                    <span class="icon time" style="font-size: 15px">10:20</span>
+                  </div>
+                  <div class="flex">
+                    <span class="material-icons icon"> wifi </span>
+                    <span class="material-icons icon">
+                      signal_cellular_alt
+                    </span>
+                    <span class="material-icons icon"> battery_6_bar </span>
+                  </div>
+                </div>
                 <div class="app-container flex flex-col">
                   <div class="app-toolbar"></div>
                   <div class="app-body">
@@ -396,6 +413,11 @@
     <script>
       const previewButton = document.getElementById("preview-btn");
       let timerId;
+
+      const time = document.getElementsByClassName("time")[0];
+      const currentDate = new Date(Date.now());
+      time.textContent =
+        currentDate.getHours() + ":" + currentDate.getMinutes();
 
       // Debounce function: Input as function which needs to be debounced and delay is the debounced time in milliseconds
       function debounceFunction(func, delay) {
