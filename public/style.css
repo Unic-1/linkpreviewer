@@ -30,8 +30,8 @@
 .app-title {
   font-family: cursive;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='38' ry='38' stroke='%23EC3463' stroke-width='7' stroke-dasharray='6%2c 20%2c 24%2c 8' stroke-dashoffset='59' stroke-linecap='butt'/%3e%3c/svg%3e");
-border-radius: 38px;
-padding: 100px;
+  border-radius: 38px;
+  padding: 50px;
 }
 
 .icon {
@@ -60,8 +60,8 @@ padding: 100px;
 }
 
 .monitor-inner-frame {
-  height: 520px;
-  width: 90%;
+  height: 350px;
+  width: 100%;
   background-color: white;
   border-width: 15px;
 }
@@ -102,10 +102,10 @@ padding: 100px;
 }
 
 .mail-avatar {
-  min-height: 30px;
-  max-height: 30px;
-  min-width: 30px;
-  max-width: 30px;
+  min-height: 20px;
+  max-height: 20px;
+  min-width: 20px;
+  max-width: 20px;
 }
 
 .link-preview {
@@ -172,4 +172,22 @@ padding: 100px;
 
 .mobile-inner-frame .link-preview {
   height: auto;
+}
+
+@media only screen and (min-width: 600px) {
+  .app-title {
+    padding: 100px;
+  }
+
+  .monitor-inner-frame {
+    height: 520px;
+    width: 90%;
+  }
+
+  .mail-avatar {
+    min-height: 30px;
+    max-height: 30px;
+    min-width: 30px;
+    max-width: 30px;
+  }
 }
