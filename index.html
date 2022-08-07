@@ -409,10 +409,18 @@
     </div>
 
     <script>
-      if (document) {
+      if (document.readyState === "complete") {
         const previewButton = document.getElementById("preview-btn");
-        // const input = document.getElementById("input-url");
-        // const baseUrl = location.hostname;
+        let timerId;
+
+        // Debounce function: Input as function which needs to be debounced and delay is the debounced time in milliseconds
+        function debounceFunction(func, delay) {
+          // Cancels the setTimeout method execution
+          clearTimeout(timerId);
+
+          // Executes the func after delay time.
+          timerId = setTimeout(func, delay);
+        }
 
         function hideLinkPreview() {
           const linkPreview = document.getElementsByClassName("link-preview");
@@ -421,9 +429,8 @@
             preview.style.display = "none";
           }
         }
-        hideLinkPreview();
 
-        previewButton.addEventListener("click", (event) => {
+        function makeAPICall() {
           const inputUrl = document.getElementById("input-url");
 
           if (!inputUrl.value) {
@@ -492,6 +499,13 @@
               alert(err);
               hideLinkPreview();
             });
+        }
+
+        // Hide all link preview boxes in the begining
+        hideLinkPreview();
+
+        previewButton.addEventListener("click", (event) => {
+          debounceFunction(makeAPICall, 300); // debounce window of 300ms
         });
       }
     </script>
